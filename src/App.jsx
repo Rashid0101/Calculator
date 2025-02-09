@@ -2,17 +2,16 @@ import { useState } from "react";
 import { HashRouter as Router } from "react-router-dom";
 import "./index.css";
 import "./reset.css";
-// Ensure you have this component
 
 export default function App() {
   const [input, setInput] = useState("");
 
   return (
-    <Router basename="/calculator">
+    <>
       <Nav />
       <Output input={input} />
       <Keyboard input={input} setInput={setInput} />{" "}
-    </Router>
+    </>
   );
 }
 
