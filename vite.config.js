@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/calculator/", // Replace "calculator" with your repository name
+  base: "/calculator/", // ✅ Fix for Netlify
 });
