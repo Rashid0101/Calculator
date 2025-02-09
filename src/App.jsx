@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom"; // Import Router
+import { HashRouter as Router } from "react-router-dom";
 import "./index.css";
 import "./reset.css";
-import Nav from "./components/Nav"; // Ensure you have this component
-import Output from "./components/Output"; // Ensure you have this component
-import Keyboard from "./components/Keyboard"; // Ensure you have this component
+// Ensure you have this component
 
 export default function App() {
   const [input, setInput] = useState("");
