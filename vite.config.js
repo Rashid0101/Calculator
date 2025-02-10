@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/calculator/", // ✅ Fix for Netlify
+  base: "/", // ✅ Use "/" or remove this line entirely for Netlify
 });
