@@ -1,21 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HashRouter as Router } from "react-router-dom";
 import "./index.css";
 import "./reset.css";
 
 export default function App() {
   const [input, setInput] = useState("");
+  const [theme, setTheme] = useState(1);
+
+  useEffect(() => {
+    document.body.className = `theme-${theme}`;
+  }, [theme]);
 
   return (
-    <>
-      <Nav />
+    <div>
+      <Nav theme={theme} setTheme={setTheme} />
       <Output input={input} />
       <Keyboard input={input} setInput={setInput} />{" "}
-    </>
+    </div>
   );
 }
 
-function Nav() {
+function Nav({ theme, setTheme }) {
+  const handleThemeChange = () => {
+    setTheme((prevTheme) => (prevTheme === 3 ? 1 : prevTheme + 1)); // Cycle through themes
+  };
+
   return (
     <div className="container-nav">
       <div className="nav-flex">
@@ -28,8 +37,11 @@ function Nav() {
               <span>2</span>
               <span>3</span>
             </div>
-            <div className="toggle">
-              <div className="circle"></div>
+            <div className="toggle" onClick={handleThemeChange}>
+              <div
+                className="circle"
+                style={{ transform: `translateX(${(theme - 1) * 1.8}rem)` }}
+              ></div>
             </div>
           </div>
         </div>
@@ -39,6 +51,12 @@ function Nav() {
 }
 
 function Output({ input }) {
+  const formatNumber = (num) => {
+    if (!num) return "";
+    const parts = num.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  };
   return (
     <form className="form-output">
       <input type="text" value={input} readOnly />
@@ -53,8 +71,11 @@ function Keyboard({ setInput, input }) {
     } else if (value === "DEL") {
       setInput((prev) => prev.slice(0, -1));
     } else if (value === "=") {
+      if (!input || /[\+\-\/X.]$/.test(input)) {
+        return;
+      }
       try {
-        setInput(eval(input).toString());
+        setInput(eval(input.replace(/X/g, "*")).toString());
       } catch {
         setInput("Error");
       }
@@ -79,7 +100,7 @@ function Keyboard({ setInput, input }) {
     ".",
     "0",
     "/",
-    "*",
+    "X",
     "RESET",
     "=",
   ];
@@ -92,8 +113,10 @@ function Keyboard({ setInput, input }) {
             key={btn}
             className={`btn 
               ${btn === "RESET" ? "btn-clear" : ""}
-               ${btn === "=" ? "btn-equal" : ""}`}
+               ${btn === "=" ? "btn-equal" : ""}
+               ${btn === "DEL" ? "btn-del" : ""}`}
             onClick={() => handleClick(btn)}
+            disabled={btn === "=" && (!input || /[\+\-\/X.]$/.test(input))}
           >
             {btn}
           </button>

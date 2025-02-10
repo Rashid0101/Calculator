@@ -1,7 +1,5 @@
-body,
-html {
+body {
   background-color: #3a4663;
-  height: 100%;
 }
 
 .container-nav,
@@ -29,7 +27,6 @@ html {
 .container-swation {
   display: flex;
   align-items: center;
-
   gap: 2.6rem;
 }
 
@@ -69,6 +66,10 @@ html {
   padding: 0.2rem;
   position: relative;
   margin-top: 0.5rem;
+}
+
+.toggle:hover {
+  cursor: pointer;
 }
 
 .circle {
@@ -128,12 +129,33 @@ html {
   box-shadow: 0px -4px 0px 0px #b3a497 inset;
   color: #434a59;
   text-align: center;
-  font-family: "League Spartan";
+  font-family: "League Spartan", sans-serif;
   font-size: 4rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   letter-spacing: -0.0667rem;
+  border: none;
+}
+
+.btn:hover {
+  background: #fffffe;
+  cursor: pointer;
+}
+
+.btn-del {
+  border-radius: 1rem;
+  background: #647198;
+  box-shadow: 0px -4px 0px 0px #414e73 inset;
+
+  color: #fff;
+  text-align: center;
+  font-family: "League Spartan", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.0467rem;
+}
+
+.btn-del:hover {
+  background: #a2b2e1;
 }
 
 .btn-clear {
@@ -149,6 +171,10 @@ html {
   letter-spacing: -0.0467rem;
 }
 
+.btn-clear:hover {
+  background: #a2b2e1;
+}
+
 .btn-equal {
   grid-column: 3 / -1;
 
@@ -160,4 +186,183 @@ html {
   font-size: 2.8rem;
   font-weight: 700;
   letter-spacing: -0.0467rem;
+}
+
+.btn-equal:hover {
+  background: #f96b5b;
+}
+
+/* ****************** */
+/* Themes */
+/* ****************** */
+
+.theme-1 {
+  background-color: #3a4663;
+}
+
+/* Theme 2 */
+.theme-2 {
+  background-color: #e6e6e6;
+}
+
+.theme-2 .nav-flex h1 {
+  color: #36362c;
+}
+
+.theme-2 .container-swation span {
+  color: #36362c;
+}
+
+.theme-2 .toggle {
+  background: #d2cdcd;
+}
+
+.theme-2 .container-keyboard {
+  background: #d2cdcd;
+}
+
+.theme-2 .btn {
+  background: #e5e4e1;
+  box-shadow: 0px -4px 0px 0px #a79e91 inset;
+}
+
+.theme-2 .btn:hover {
+  background: #fff;
+}
+
+.theme-2 .form-output input {
+  background-color: #eee;
+  color: #36362c;
+}
+
+.theme-2 .btn-clear {
+  background: #378187;
+  box-shadow: 0px -4px 0px 0px #1b6066 inset;
+}
+
+.theme-2 .btn-clear:hover {
+  background: #62b5bc;
+}
+
+.theme-2 .btn-equal {
+  background: #c85402;
+  box-shadow: 0px -4px 0px 0px #873901 inset;
+}
+
+.theme-2 .btn-equal:hover {
+  background: #ff8a38;
+}
+.theme-2 .btn-del {
+  background-color: #378187;
+  box-shadow: 0px -4px 0px 0px #1b6066 inset;
+}
+
+.theme-2 .btn-del:hover {
+  background: #62b5bc;
+}
+
+/* Theme 3 ***************************************************/
+
+.theme-3 {
+  background: #17062a;
+}
+
+.theme-3 .nav-flex h1 {
+  color: #ffe53d;
+}
+
+.theme-3 .container-swation span {
+  color: #ffe53d;
+}
+
+.theme-3 .toggle {
+  background: #1e0936;
+}
+
+.theme-3 .circle {
+  background-color: #00ded0;
+}
+
+.theme-3 .container-keyboard {
+  background: #1e0936;
+}
+
+.theme-3 .btn {
+  background: #331c4d;
+  box-shadow: 0px -4px 0px 0px #881c9e inset;
+
+  color: #ffe53d;
+}
+
+.theme-3 .btn:hover {
+  background: #6c34ac;
+}
+
+.theme-3 .form-output input {
+  background: #1e0936;
+  color: #ffe53d;
+}
+
+.theme-3 .btn-clear {
+  background: #56077c;
+  box-shadow: 0px -4px 0px 0px #be15f4 inset;
+
+  color: #fff;
+}
+
+.theme-3 .btn-clear:hover {
+  background: #8631af;
+}
+
+.theme-3 .btn-equal {
+  background: #00ded0;
+  box-shadow: 0px -4px 0px 0px #6cf9f1 inset;
+
+  color: #1a2327;
+}
+
+.theme-3 .btn-equal:hover {
+  background: #93fff8;
+  box-shadow: 0px -4px 0px 0px #6cf9f1 inset;
+}
+.theme-3 .btn-del {
+  background: #56077c;
+  box-shadow: 0px -4px 0px 0px #be15f4 inset;
+  color: #fff;
+}
+
+.theme-3 .btn-del:hover {
+  background: #8631af;
+}
+
+/* ************************************* */
+/* ************************************* */
+
+@media (max-width: 40rem) {
+  .container-nav,
+  .form-output,
+  .container-keyboard {
+    width: 32.7rem;
+  }
+
+  .form-output input {
+    width: 32.7rem;
+    height: 8.8rem;
+
+    font-size: 4rem;
+  }
+
+  .container-keyboard {
+    margin-top: 2.4rem;
+  }
+
+  .btn {
+    font-size: 3.2rem;
+  }
+
+  .btn-clear,
+  .btn-equal,
+  .btn-del {
+    font-size: 2rem;
+  }
 }
